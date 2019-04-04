@@ -18,7 +18,7 @@ jobs:
       #- checkout # this is extremely slow as it does as full fetch of the github repo.
       - add_ssh_keys:
           fingerprints:
-            - "8d:8d:c3:11:47:f0:e0:53:bb:d8:0d:f6:df:7e:46:21"
+            - "d8:2f:c4:55:27:fc:3f:b1:20:00:1f:ce:d4:72:53:46"
 
       - run:
           name: Avoid hosts unknown for github
@@ -26,7 +26,7 @@ jobs:
 
       - run:
           name: Clone GitHub repository
-          command: git clone -b circleci-test --single-branch git@github.com:activist/highcharts.git --depth=1
+          command: git clone -b ${CIRCLE_BRANCH} --single-branch git@github.com:activist/highcharts.git --depth=1
 
       # Download and cache dependencies
       - restore_cache:
