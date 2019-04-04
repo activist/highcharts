@@ -18,7 +18,7 @@ jobs:
       #- checkout # this is extremely slow as it does as full fetch of the github repo.
       - add_ssh_keys:
           fingerprints:
-            - 9c:07:e5:e6:5f:4c:fd:b7:9f:5e:33:c6:80:f8:ce:fa
+            - "9c:07:e5:e6:5f:4c:fd:b7:9f:5e:33:c6:80:f8:ce:fa"
 
       - run:
           name: Avoid hosts unknown for github
