@@ -12,7 +12,7 @@ jobs:
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
 
-    working_directory: ~/highcharts
+    working_directory: ~/repo/highcharts
 
     steps:
       #- checkout # this is extremely slow as it does as full fetch of the github repo.
@@ -21,10 +21,10 @@ jobs:
             - "d8:2f:c4:55:27:fc:3f:b1:20:00:1f:ce:d4:72:53:46"
       - run:
           name: Avoid hosts unknown for github
-          command: echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config && cat ~/.ssh/config
+          command: echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
       - run:
           name: Clone GitHub repository
-          command: git clone -b ${CIRCLE_BRANCH} --single-branch git@github.com:activist/highcharts.git --depth=1
+          command: git clone -b ${CIRCLE_BRANCH} --single-branch git@github.com:activist/highcharts.git --depth=1 ~/repo/highcharts
 
       # Download and cache dependencies
       - restore_cache:
