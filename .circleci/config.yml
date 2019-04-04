@@ -22,11 +22,11 @@ jobs:
 
       - run:
           name: Avoid hosts unknown for github
-          command: mkdir ~/.ssh/ && echo -e “Host github.com\n\tStrictHostKeyChecking no\n” > ~/.ssh/config
+          command: echo -e “Host github.com\n\tStrictHostKeyChecking no\n” > ~/.ssh/config
 
       - run:
           name: Clone GitHub repository
-          command: git clone -b ${CIRCLE_BRANCH} --single-branch git@github.com:activist/highcharts.git --depth=1
+          command: git clone -b circleci-test --single-branch git@github.com:activist/highcharts.git --depth=1
 
       # Download and cache dependencies
       - restore_cache:
